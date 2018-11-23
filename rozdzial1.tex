@@ -1,0 +1,196 @@
+% !TeX program = latexmk
+% !TeX spellcheck = pl_PL
+% !TeX root = example.tex
+
+\chapter{Jak korzystać z szablonu pracy}
+
+Klasa przygotowana jest zgodnie z zaleceniami dostępnymi ze strony \url{} i może być wykorzystana do składu pracy \textbf{inżynierskiej} lub \textbf{magisterskiej} na wydziale mechanicznym.
+
+Klasa zgodnie z \href{http://www.wmech.pwr.wroc.pl/88428.dhtml}{wymaganiami Wydziału Mechanicznego} składa stronę tytułową i~stosuje się do zaleceń (czcionka, zasady numeracji, odstępy,\ldots).
+
+Po raz pierwszy w roku akademickim 2015/2016 prace dyplomowe będą sprawdzane przez program antyplagiatowy. Nie wiadomo jeszcze jakie to będzie miało konsekwencje dla prac składanych w LaTeXu. Proponuję zaglądać do \href{http://kmim.wm.pwr.edu.pl/myszka/tag/antyplagiat/}{aktualności temu poświęconych}.
+
+\section{Użycie}
+
+\begin{enumerate}
+\item
+Praca magisterska i inżynierska.
+
+Wychodzi, że tak na prawdę powinny być dwie wersje pracy: do archiwum (marginesy 2,5 cm) i „dla promotora”\footnote{Ciekawe po co mu…?}. Wersja dla promotora powinna mieć trochę większy margines od strony oprawy (35mm), najprawdopodobniej będzie drukowana \textbf{jednostronnie} i, żeby była łatwiejsza do czytania będzie złożona z interlinią \textbf{1,5}.
+
+Jak tak to tak:  pojawiły się dwie dodatkowe opcje klasy:
+\begin{enumerate}
+\item
+\texttt{archiwum}: \verb|\usepackage[magister,archiwum]{dyplom}| — wersja do archiwum
+\item
+\texttt{druk}: \verb|\usepackage[inzynier,druk]{dyplom}| — wersja do „druku” (i oprawy).
+\end{enumerate}
+\textbf{W przypadku braku opcji — wybierana jest wersja do archiwum!}
+
+Tak na prawdę, to w przypdku braku opcji powinna być wybierana wersja druk. Wybrałem jednak opisane wyzej zachowanie, aby zachowanie zmodyfikowanej klasy było zgodne z dotychczasowym. Zalecam przeprowadzanie redakcji tekstu w trybie druku i pozostawienie dokumentu „jak wyjdzie” w trybie archiwum. Chyba, że ilustracje będą zachowywać się bardzo dziwnie…
+
+Ponieważ „doszły do mnie” jakieś dziwne informacje, że ze stroną tytułową jest coś nie tak, dokonałem kolejnych porównań. Różnica jest jedna: obecność ramki wokół tytułów pracy. W związku z tym, ramka została zlikwidowana. Można ją odzyskać dodając dodatkowy parametr: \verb|\usepackage[inzynier,druk,ramka]{dyplom}| i~się pojawi…
+\item
+Praca magisterska:
+\begin{verbatim}
+\documentclass[magister]{dyplom}
+\end{verbatim}
+Dodatkowo zdefiniować należy sposób kodowania polskich liter. W przypadku systemu Windows będzie to najprawdopodobniej:
+\begin{verbatim}
+\usepackage[cp1250]{inputenc}
+\end{verbatim}
+a w przypadku systemów linuksowych:
+\begin{verbatim}
+\usepackage[utf8]{inputenc}
+\end{verbatim}
+
+Dodatkowo zdefiniować należy „metadane”:
+\begin{itemize}
+\item
+Nazwisko autora:
+\begin{verbatim}
+\author{Imię Nazwisko}
+\end{verbatim}
+\item
+Tytuł pracy (w języku polskim):
+\begin{verbatim}
+\title{Tytuł Pracy}
+\end{verbatim}
+\item
+Tytuł pracy po angielsku
+\begin{verbatim}
+\titlen{Work Title}
+\end{verbatim}
+\item
+Nazwisko promotora
+\begin{verbatim}
+\promotor{prof. dr hab. inż. Imię Nazwisko, prof. PWr.}
+\end{verbatim}
+\item
+Kierunek
+\begin{verbatim}
+\kierunek{Prawo}
+\end{verbatim}
+\item
+Specjalność:
+\begin{verbatim}
+\specjalnosc{Lewo}
+\end{verbatim}
+\item
+W razię potrzeby wpisać można inną nazwę wydziału. Gdy nie zostanie wpisana — będzie tam Wydział Mechaniczny.
+\begin{verbatim}
+\wydzial{Wydział Elektryczny}
+\end{verbatim}
+\item
+Praca może mieć konsultanta/konsultantów. Dodałem więc pole konsultant:
+\begin{verbatim}
+\konsultant{dr inż. Kazimierz Kabacki}
+\end{verbatim}
+Nazwisko konsultanta pojawi się miedzy nazwiskiem promotora a oceną. Pozostaje kwestia czy powinien to być „konsultant” czy raczej „konsulktanci”?
+\end{itemize}
+Powyższe metadane umieszczamy przed \verb|\begin{document}|:
+\begin{verbatim}
+\documentclass[magister]{dyplom}
+\usepackage[utf8]{inputenc}
+
+\author{Jan A. Backi}
+\title{Lorem ipsum dolor sit amet, consectetuer adipiscing elit}
+\titlen{Lorem ipsum dolor sit amet, consectetuer adipiscing elit}
+\promotor{dr hab. inż. Jerzy Babacki, prof. nadzw. PWr., I-77}
+\wydzial{Wydział Mechaniczny}
+\kierunek{Prawo}
+\specjalnosc{Lewo}
+
+\begin{document}
+\end{verbatim}
+\item
+Praca inżynierska:
+\begin{verbatim}
+\documentclass[inzynier]{dyplom}
+\end{verbatim}
+Dodatkowo zdefiniować należy sposób kodowania polskich liter. W przypadku systemu Windows będzie to najprawdopodobniej:
+\begin{verbatim}
+\usepackage[cp1250]{inputenc}
+\end{verbatim}
+a w przypadku systemów linuksowych:
+\begin{verbatim}
+\usepackage[utf8]{inputenc}
+\end{verbatim}
+
+Dodatkowo zdefiniować należy „metadane”:
+\begin{itemize}
+\item
+Nazwisko autora:
+\begin{verbatim}
+\author{Imię Nazwisko}
+\end{verbatim}
+\item
+Tytuł pracy (w języku polskim):
+\begin{verbatim}
+\title{Tytuł Pracy}
+\end{verbatim}
+\item
+Tytuł pracy po angielsku
+\begin{verbatim}
+\titlen{Work Title}
+\end{verbatim}
+\item
+Nazwisko promotora
+\begin{verbatim}
+\promotor{prof. dr hab. inż. Imię Nazwisko, prof. PWr.}
+\end{verbatim}
+\item
+Kierunek
+\begin{verbatim}
+\kierunek{Prawo}
+\end{verbatim}
+%\item
+%Specjalność:
+%\begin{verbatim}
+%\specjalnosc{Lewo}
+%\end{verbatim}
+\item
+W razię potrzeby wpisać można inną nazwę wydziału. Gdy nie zostanie wpisana — będzie tam Wydział Mechaniczny.
+\begin{verbatim}
+\wydzial{Wydział Elektryczny}
+\end{verbatim}
+\item
+Praca może mieć konsultanta/konsultantów. Dodałem więc pole konsultant:
+\begin{verbatim}
+\konsultant{dr inż. Kazimierz Kabacki}
+\end{verbatim}
+Nazwisko konsultanta pojawi się miedzy nazwiskiem promotora a oceną. Pozostaje kwestia czy powinien to być „konsultant” czy raczej „konsultanci”?
+
+\end{itemize}
+Powyższe metadane umieszczamy przed \verb|\begin{document}|:
+\begin{verbatim}
+\documentclass[magister]{dyplom}
+\usepackage[utf8]{inputenc}
+
+\author{Jan A. Backi}
+\title{Lorem ipsum dolor sit amet, consectetuer adipiscing elit}
+\titlen{Lorem ipsum dolor sit amet, consectetuer adipiscing elit}
+\promotor{dr hab. inż. Jerzy Babacki, prof. nadzw. PWr., I-77}
+\wydzial{Wydział Mechaniczny}
+\kierunek{Prawo}
+\specjalnosc{Lewo}
+
+\begin{document}
+\end{verbatim}
+
+\end{enumerate}
+
+\section{Dodatkowe zasoby}
+
+Warto wspomnieć  o innych inicjatywach przyswojenia LaTeX{}a piszącym prace dyplomowe. Najważniejsza z nich to książka Tomasza Przechlewskiego \cite{tp-11-latex} oraz przygotowana przez niego klasa znajdująca się w \url{https://github.com/hrpunio/wzmgr}. Przykłady z książki znaleźć można w \url{https://github.com/hrpunio/pmdzpl}.
+
+
+\section{Gdzie znaleźć?}
+
+Pakiet można znaleźć pod adresem: \url{http://www.immt.pwr.wroc.pl/~myszka/dydaktyka/}. Wersja zarchiwizowana: \href{http://www.immt.pwr.wroc.pl/~myszka/TeX/dyplom/dyplom.zip}{dyplom.zip}
+
+\section{Uwagi}
+
+Wszelkie uwagi i postulaty należy kierować na adres Wojciech.Myszka@pwr.wroc.pl
+
+W miarę potrzeby mogę szablon dostosować do wymagań innych wydziałow Politechniki Wrocławskiej.

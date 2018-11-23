@@ -1,0 +1,93 @@
+% -*- TeX:PL -*-
+% $Id: pwrdtyt.sty,v 1.3 2007/04/24 19:30:13 myszka Exp myszka $
+\ProvidesFile{pwrdtyt.sty}
+              [2007/04/24 v0.04
+      Definicja polecenia maketitle spelniajacego wymagania SIW PWr]
+%
+\RequirePackage[absolute]{textpos}
+%\RequirePackage{pstricks}
+%
+%% Copyright 2005-2007 by Wojciech Myszka <wojciech.myszka@pwr.wroc.pl>
+%%
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.2
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%%
+
+\def\promotor#1{\gdef\@promotor{#1}}
+\def\@promotor{\@latex@error{No \noexpand\promotor given}\@ehc}
+\def\wydzial#1{\gdef\@wydzial{#1}}
+\def\@wydzial{\@latex@warning@no@line{No \noexpand\wydzial given}}
+\def\kluczowe#1{\gdef\@kluczowe{#1}}
+\def\@kluczowe{\@latex@error{No \noexpand\kluczowe given}\@ehc}
+\def\streszczenie#1{\gdef\@streszczenie{#1}}
+\def\@streszczenie{\@latex@error{No \noexpand\streszczenie given}\@ehc}
+%
+\renewcommand\maketitle{\begin{titlepage}%
+\pagenumbering{alph}%
+\begin{textblock*}{210mm}(0mm,0mm)
+\noindent\unitlength1mm%
+\begin{picture}(0,0)
+\put(129,-25){\makebox(0,0)[cb]{\fontsize{16pt}{18pt}\usefont{T1}{ugm}{m}{n}\@wydzial}}%
+\definecolor{jasnoszary}{rgb}{.74 .74 .74}
+%zewnetrzna
+%\put(68,-186){\framebox(128,80){}}%
+\textcolor{jasnoszary}{%
+\put(68,-186){\rule{128mm}{4mm}}\put(68,-186){\rule{4mm}{80mm}}
+\put(68,-110){\rule{128mm}{4mm}}\put(192,-186){\rule{4mm}{80mm}}
+}%
+%\put(68,-186){\psframe[fillstyle=solid,fillcolor=jasnoszary](0,0)(12.8,8)}
+%wewnetrzna
+%\put(72,-182){\framebox(120,72){}}%
+%\put(72,-182){\psframe[fillstyle=solid,fillcolor=white](0,0)(12,7.2)}
+\put(132,-95){\makebox(0,0)[cb]{\fontsize{30pt}{32pt}\usefont{T1}{ugm}{m}{n}PRACA DYPLOMOWA}}%
+\put(132,-115){\makebox(0,0)[t]{\parbox{115mm}{\centering\fontsize{16pt}{18pt}\usefont{T1}{ugm}{m}{n}\@title}}}%
+\put(132,-160){\makebox(0,0){\fontsize{14pt}{16pt}\usefont{T1}{ugm}{m}{n}\@author}}%
+\put(192,-197){\makebox(0,0)[tr]{\parbox{115mm}{\fontsize{12pt}{14pt}\usefont{T1}{ugm}{m}{n}\raggedleft s{\l}owa kluczowe:\\\@kluczowe}}}%
+\put(72,-237){\makebox(0,0)[tl]{\parbox{115mm}{\fontsize{10pt}{12pt}\usefont{T1}{ugm}{m}{n}\raggedright kr\'otkie streszczenie:\\\@streszczenie}}}%
+\put(132,-282){\makebox(0,0)[bc]{\fontsize{16pt}{18pt}\usefont{T1}{ugm}{m}{n} Wroc{\l}aw \number\year}}%
+\put(132,-180){\makebox(0,0)[b]{\parbox{115mm}{\centering\fontsize{14pt}{16pt}\usefont{T1}{ugm}{m}{n}Promotor: \@promotor}}}%
+\end{picture}
+\end{textblock*}
+  \let\footnotesize\small
+  \let\footnoterule\relax
+  \let \footnote \thanks
+  \mbox{}
+  \end{titlepage}%
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\@wydzial\@empty
+  \global\let\@streszczenie\@empty
+  \global\let\@kluczowe\@empty
+  \global\let\@prommotor\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+  \global\let\streszczenie\relax
+  \global\let\wydzial\relax
+  \global\let\kluczowe\relax
+  \global\let\promotor\relax
+  \pagenumbering{arabic}
+}
+\endinput
+$Log: pwrdtyt.sty,v $
+Revision 1.3  2007/04/24 19:30:13  myszka
+Rafal Zawierta <zawierta@tlen.pl> zwrocil uwage na problem z etykietami stron
+dodawanymi przez hyperref spowodowany tym, ze strona tytulowa
+w srodowisku titlepage ma numer 1.
+Zmieniono numeracje strony tytulowej na \pagenumbering{alph}.
+W paket hyperref trzeba wstawiac z opcja plainpages=false.
+
+Revision 1.2  2006-03-15 09:18:37+01  myszka
+Andrzej Soinski <118248@student.pwr.wroc.pl> zaproponowal dodanie szarych ramek i wykorzystal do tego pstricks. Na razie tak zostanie - ale nie jest to najlepsze rozwiazane ze wzgledu na niemoznosc przetwarzania pdflatexem

@@ -1,0 +1,74 @@
+\documentclass[inzynier,druk,ramka]{dyplom}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+%%
+\usepackage[toc]{appendix}
+\renewcommand{\appendixtocname}{Dodatki}
+\renewcommand{\appendixpagename}{Dodatki}
+%%
+\usepackage{minted}
+\setminted{breaklines,
+frame=lines,
+framesep=5mm,
+baselinestretch=1.1,
+%bgcolor=Goldenrod!30!white,
+%bgcolor=taorange!30!white,
+fontsize=\small,
+%linenos
+}
+\usepackage{float}
+\newfloat{listing}{htp}{lop}
+\floatname{listing}{Listing}
+\usepackage{chngcntr}
+\counterwithin{listing}{chapter}
+\usepackage{url}
+\usepackage{lipsum}
+
+% Dane o pracy
+\author{Anna Nowak}
+\title{Kot Ali a Docker}
+\titlen{The Ala's cat and the Docker}
+\promotor{dr inż. Wojciech Thomas}
+%\konsultant{dr hab. inż. Kazimerz Kabacki}
+\wydzial{Wydział Informatyki i Zarządzania}
+\kierunek{Informatyka}
+%\specjalnosc{JeśliJest}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\listoffigures
+
+\listof{listing}{Spis listingów}
+
+\listoftables
+
+% Rozdział dołączony z zewnątrz
+\input{wstep}
+
+
+\input{rozdzial1}
+
+\input{rozdzial2}
+
+
+\input{zakonczenie}
+
+\appendixpage
+\appendix
+%\addappheadtotoc
+
+\chapter{To powinien być dodatek}\label{Dod1}
+
+\lipsum[9-11]
+
+% W pracy pojawią się tylko prace naprawdę cytowane.
+% \nocite{*}
+
+\bibliography{literatura}
+\bibliographystyle{dyplom}
+
+\end{document}
