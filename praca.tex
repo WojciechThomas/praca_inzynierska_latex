@@ -16,11 +16,27 @@ baselinestretch=1.1,
 fontsize=\small,
 %linenos
 }
+
+% nowe otoczenie do składania listingów
 \usepackage{float}
 \newfloat{listing}{htp}{lop}
 \floatname{listing}{Listing}
 \usepackage{chngcntr}
 \counterwithin{listing}{chapter}
+
+% patch wyrównujący spis listingów do lewego marginesu 
+%https://tex.stackexchange.com/questions/58469/why-are-listof-and-listoffigures-styled-differently
+\makeatletter
+\renewcommand*{\listof}[2]{%
+  \@ifundefined{ext@#1}{\float@error{#1}}{%
+    \expandafter\let\csname l@#1\endcsname \l@figure  % <- use layout of figure
+    \float@listhead{#2}%
+    \begingroup
+      \setlength\parskip{0pt plus 1pt}%               % <- or drop this line completely
+      \@starttoc{\@nameuse{ext@#1}}%
+    \endgroup}}
+\makeatother
+
 \usepackage{url}
 \usepackage{lipsum}
 
