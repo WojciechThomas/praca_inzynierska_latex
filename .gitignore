@@ -1,0 +1,10 @@
+_minted-praca/
+*.aux
+*.bbl
+*.blg
+*.lof
+*.lop
+*.lot
+*.out
+*.synctex(busy)
+*.toc
