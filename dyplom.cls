@@ -82,6 +82,7 @@
 \def\rodzajpracy#1{\gdef\@rodzajpracy{#1}}
 \gdef\@rodzajpracy{\@latex@warning@no@line{No \noexpand\rodzajpracy given}\@ehc}
 \def\slowakluczowe#1{\gdef\@slowakluczowe{#1}}
+% nowe pola wymagana w szablonie okładki WIZ
 \gdef\@slowakluczowe{\@latex@error{No \noexpand\slowakluczowe given}\@ehc}
 \def\krotkiestreszczenie#1{\gdef\@krotkiestreszczenie{#1}}
 \gdef\@krotkiestreszczenie{\@latex@error{No \noexpand\krotkiestreszczenie given}\@ehc}
@@ -677,7 +678,9 @@ Kierunek studiów: \@kierunek
 \end{flushleft}
 \begin{minipage}[t][0.46\textheight]{\textwidth}
 \begin{center}
-\large Praca dyplomowa --  \if@inzynier inżynierska \fi \\
+\large Praca dyplomowa -- %
+\if@inzynier inżynierska \fi%
+\if@magister magisterska \fi \\
 \vspace{0cm plus .5fill}
 \StrLen{\@title}[\tytuldlugosc]
 \ifthenelse{\tytuldlugosc > \dlugoscmaxg}{
