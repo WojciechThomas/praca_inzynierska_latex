@@ -1,3 +1,5 @@
+% !TEX encoding = UTF-8 Unicode 
+
 \documentclass[inzynier,druk]{dyplom}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
@@ -5,6 +7,9 @@
 \usepackage[toc]{appendix}
 \renewcommand{\appendixtocname}{Dodatki}
 \renewcommand{\appendixpagename}{Dodatki}
+
+% Głębokość numerowania sekcji /section /subsection /subsubsection ...
+\setcounter{secnumdepth}{4}
 
 % pakiet do składu listingów w razie potrzeby można odblokować możliwość numerowania linii lub zmienić wielkość czcionki w listingu
 \usepackage{minted}
@@ -54,14 +59,6 @@ fontsize=\small,
 
 \maketitle
 
-\tableofcontents
-
-\listoffigures
-
-\listof{listing}{Spis listingów}
-
-\listoftables
-
 % --- Strona ze streszczeniem i abstraktem ------------------------------------------------------------------
 \chapter*{Streszczenie} % po polsku
 % Wprowadzenie
@@ -87,6 +84,7 @@ The main goal of this thesis was development of\dots (\textit{please translate r
 \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 % --- Koniec strony ze streszczeniem i abstraktem -----------------------------------------------------------
 
+\tableofcontents
 
 
 % Rozdział dołączony z zewnątrz
@@ -100,18 +98,24 @@ The main goal of this thesis was development of\dots (\textit{please translate r
 
 \input{zakonczenie}
 
+% W spisie pojawią się tylko pozycje cytowane w tekście, np.: \cite{aizawa_groundwater_2009}.
+\bibliography{literatura}
+\bibliographystyle{dyplom}
+
+
+\listoffigures
+
+\listof{listing}{Spis listingów}
+
+\listoftables
+
 \appendixpage
 \appendix
 %\addappheadtotoc
 
 \chapter{To powinien być dodatek}\label{Dod1}
 
-\lipsum[9-11]
+W dodatku umieszczamy elementy pracy o dużej objętości, które mogą utrudniać czytanie pracy. Przykładem może być lista dwudziestu sześciu scenariuszy przypadków użycia (jeśli autor chce wszystkie dwadzieścia sześć zamieścić w pracy). \lipsum[9-11]
 
-% W pracy pojawią się tylko prace naprawdę cytowane.
-% \nocite{*}
-
-\bibliography{literatura}
-\bibliographystyle{dyplom}
 
 \end{document}
