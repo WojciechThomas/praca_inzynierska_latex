@@ -1,7 +1,7 @@
 % !TEX encoding = UTF-8 Unicode 
 
 \documentclass[inzynier,druk]{dyplom}
-\usepackage[utf8]{inputenc}
+	\usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 %%
 \usepackage[toc]{appendix}
@@ -48,7 +48,7 @@ fontsize=\small,
 \author{Anna Nowak}
 \title{Kot Ali a Docker}
 \titlen{The Ala's cat and the Docker}
-\promotor{dr inż. Wojciech Thomas}
+%\promotor{dr inż. Wojciech Thomas}
 %\konsultant{dr hab. inż. Kazimerz Kabacki}
 \wydzial{Wydział Informatyki i Zarządzania}
 \kierunek{Informatyka}
@@ -59,63 +59,43 @@ fontsize=\small,
 
 \maketitle
 
-% --- Strona ze streszczeniem i abstraktem ------------------------------------------------------------------
-\chapter*{Streszczenie} % po polsku
-% Wprowadzenie
-Celem pracy było opracowanie aplikacji służącej do komunikacji z kosmitami. Dostępne na rynku aplikacj e nie satysfakcjonowały autorki ze względu na brak istotnych funkcji takich jak obsługa przez telefon z systemem Android.
-% Sposób rozwiązania problemu
-W ramach pracy przygotowano aplikację komunikacyjną wykorzystującą framework SpaceDirect, przechowującą dane kontaktów w bazie danych MyNoSQL oraz udostępniającą swoje funkcje przez interfejs REST API.
-% Dodatkowe informacji o pracy
-Oprócz projektu aplikacji praca zawiera wyniki testów jednostkowych oraz testów użyteczności przeprowadzonych przez krewnych i znajomych królika.
-% Podsumowanie
-Przygotowana w ramach projektu inżynierskiego praca może zostać wykorzystana przez wszystkie osoby zainteresowane kontaktami z cywilizacjami pozaziemskimi.
-
-
-% Kilka sztuczek, żeby:
-% - Abstract pojawił się na tej samej stronie co Streszczenie
-% - Abstract nie pojawił się w spisie treści
-\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
-\begingroup
-\renewcommand{\cleardoublepage}{}
-\renewcommand{\clearpage}{}
-\chapter*{Abstract} % ...i to samo po angielsku
-The main goal of this thesis was development of\dots (\textit{please translate remaining part of Streszczenie into English}).
-\endgroup
-\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
-% --- Koniec strony ze streszczeniem i abstraktem -----------------------------------------------------------
-
 \tableofcontents
 
+\input{streszczenie}
 
-% Rozdział dołączony z zewnątrz
 \input{wstep}
-
 
 \input{rozdzial1}
 
 \input{rozdzial2}
 
+\input{rozdzial3}
+
+\input{rozdzial4}
 
 \input{zakonczenie}
 
+% Bibliografia
 % W spisie pojawią się tylko pozycje cytowane w tekście, np.: \cite{aizawa_groundwater_2009}.
 \bibliography{literatura}
 \bibliographystyle{dyplom}
 
 
-\listoffigures
+% Spisy rysunków listingów i tabel 
+% Można włączyć gdyby opiekun pracy sobie życzył :)
+%\listoffigures
+%\listof{listing}{Spis listingów}
+%\listoftables
 
-\listof{listing}{Spis listingów}
+% Dodatki - tu można umieścić duże objętościowo materiały 
+% - Projekt interfejsu użytkownika, 
+% - Scenariusze wszystkich przypadków użycia
 
-\listoftables
-
-\appendixpage
-\appendix
+%\appendixpage
+%\appendix
+%\input{dodatek}
 %\addappheadtotoc
 
-\chapter{To powinien być dodatek}\label{Dod1}
-
-W dodatku umieszczamy elementy pracy o dużej objętości, które mogą utrudniać czytanie pracy. Przykładem może być lista dwudziestu sześciu scenariuszy przypadków użycia (jeśli autor chce wszystkie dwadzieścia sześć zamieścić w pracy). \lipsum[9-11]
 
 
 \end{document}

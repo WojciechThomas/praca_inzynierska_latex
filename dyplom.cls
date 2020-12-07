@@ -733,59 +733,16 @@ słowa kluczowe:\\[0.8ex]
 \begin{minipage}[b][0.33\textheight]{\textwidth}
 \begin{tabular}{|P{2.35cm}|P{6cm}|C{1.15cm}|C{1.9cm}|}
 \hline
-\multirow{2}{2.35cm}[.1em]{\scriptsize Opiekun pracy dyplomowej} 
-&  
-\StrLen{\@promotor}[\opiekundlugosc]
-\ifthenelse{\opiekundlugosc > \dlugoscmaxf}{
-\KOMAoptions{fontsize=10pt}
-\addstackgap[6pt]{\normalsize\@promotor}
-}{
-\ifthenelse{\opiekundlugosc > \dlugoscmaxe}{
-\footnotesize
-\addstackgap[6pt]{\@promotor}
-}{
-\ifthenelse{\opiekundlugosc > \dlugoscmaxd}{
-	\small
-	\addstackgap[6pt]{\@promotor}
-}{
-	\addstackgap[6pt]{\@promotor}
-}
-}
-}
-&   
-\vspace{-6pt}\dotline[3pt]{31pt}
-&
-\vspace{-6pt}\dotline[3pt]{51pt}
+\multirow{2}{2.35cm}[.2em]{\scriptsize Opiekun pracy dyplomowej}&\multicolumn{3}{c|}{\ }
 \\ \cline{2-4} 
-&  \scriptsize Tytuł/stopień naukowy/imię i nazwisko
-&  \scriptsize ocena             
-&  \scriptsize podpis                    
-\\ \hline
-\multicolumn{4}{|c|}{\footnotesize Ostateczna ocena za pracę dyplomową}
-\\ \hline
+&\multicolumn{3}{c|}{\scriptsize Tytuł/stopień naukowy/imię i nazwisko}\\
+\hline
+\multicolumn{4}{|c|}{\footnotesize Ostateczna ocena za pracę dyplomową}\\
+ \hline
 \multirow{2}{2.35cm}[.2em]{\scriptsize Przewodniczący Komisji egzaminu dyplomowego} 
 &  
-\StrLen{\@promotor}[\opiekundlugosc]
-\ifthenelse{\opiekundlugosc > \dlugoscmaxf}{
-\KOMAoptions{fontsize=10pt}
-\addstackgap[6pt]{\normalsize\phantom{\@promotor}}
-}{
-\ifthenelse{\opiekundlugosc > \dlugoscmaxe}{
-\footnotesize
-\addstackgap[6pt]{\phantom{\@promotor}}
-}{
-\ifthenelse{\opiekundlugosc > \dlugoscmaxd}{
-	\small
-	\addstackgap[6pt]{\phantom{\@promotor}}
-}{
-	\addstackgap[6pt]{\phantom{\@promotor}}
-}
-}
-}
 &   
-\vspace{-6pt}\dotline[3pt]{31pt}
 &
-\vspace{-6pt}\dotline[3pt]{51pt}
 \\ \cline{2-4} 
 &  \scriptsize Tytuł/stopień naukowy/imię i nazwisko
 &  \scriptsize ocena             

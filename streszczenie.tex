@@ -1,0 +1,25 @@
+% --- Strona ze streszczeniem i abstraktem --------------------
+
+\chapter*{Streszczenie} % po polsku
+% Wprowadzenie
+Celem pracy było opracowanie aplikacji służącej do komunikacji z kosmitami. Dostępne na rynku aplikacj e nie satysfakcjonowały autorki ze względu na brak istotnych funkcji takich jak obsługa przez telefon z systemem Android.
+% Sposób rozwiązania problemu
+W ramach pracy przygotowano aplikację komunikacyjną wykorzystującą framework SpaceDirect, przechowującą dane kontaktów w bazie danych MyNoSQL oraz udostępniającą swoje funkcje przez interfejs REST API.
+% Dodatkowe informacji o pracy
+Oprócz projektu aplikacji praca zawiera wyniki testów jednostkowych oraz testów użyteczności przeprowadzonych przez krewnych i znajomych królika.
+% Podsumowanie
+Przygotowana w ramach projektu inżynierskiego praca może zostać wykorzystana przez wszystkie osoby zainteresowane kontaktami z cywilizacjami pozaziemskimi.
+
+
+% Kilka sztuczek, żeby:
+% - Abstract pojawił się na tej samej stronie co Streszczenie
+% - Abstract nie pojawił się w spisie treści
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begingroup
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
+\chapter*{Abstract} % ...i to samo po angielsku
+The main goal of this thesis was development of\dots (\textit{please translate remaining part of Streszczenie into English}).
+\endgroup
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+% --- Koniec strony ze streszczeniem i abstraktem -----------------------------------------------------------
