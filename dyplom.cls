@@ -178,4 +178,43 @@
 \restoregeometry
 \pagenumbering{arabic}
 }
+
+\renewcommand{\abstract}[2]{
+
+% Abstract nie pojawia się w spisie treści
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begingroup
+	\chapter*{Streszczenie} % po polsku
+	#1
+	% Abstract pojawił się na tej samej stronie co Streszczenie
+	\renewcommand{\cleardoublepage}{}
+	\renewcommand{\clearpage}{}
+	\chapter*{Abstract} % ...i to samo po angielsku
+	#2
+\endgroup
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}	
+}
+% patch wyrównujący spis listingów do lewego marginesu 
+%https://tex.stackexchange.com/questions/58469/why-are-listof-and-listoffigures-styled-differently
+\makeatletter
+\renewcommand*{\listof}[2]{%
+	\@ifundefined{ext@#1}{\float@error{#1}}{%
+		\expandafter\let\csname l@#1\endcsname \l@figure  % <- use layout of figure
+		\float@listhead{#2}%
+		\begingroup
+		\setlength\parskip{0pt plus 1pt}%               % <- or drop this line completely
+		\@starttoc{\@nameuse{ext@#1}}%
+		\endgroup}}
+\makeatother
+
+\RequirePackage{url}
+\RequirePackage{minted}
+
+% otoczenie do składania listingów
+\RequirePackage{float}
+\newfloat{listing}{htp}{lop}
+\floatname{listing}{Listing}
+\RequirePackage{chngcntr}
+\counterwithin{listing}{chapter}
+
 \endinput % dla porządku

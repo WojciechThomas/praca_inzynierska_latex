@@ -11,44 +11,24 @@
 % Nie zaleca się stosowania większej liczby poziomów numerowania
 \setcounter{secnumdepth}{4}
 
-% pakiet do składu listingów w razie potrzeby można odblokować możliwość numerowania linii lub zmienić wielkość czcionki w listingu
-\usepackage{minted}
+% konfiguracja pakietu minted do składu listingów
+% w razie potrzeby można odblokować możliwość numerowania linii lub zmienić wielkość czcionki w listingu
 \setminted{breaklines,
 frame=lines,
-framesep=5mm,
+framesep=3mm,
 baselinestretch=1.1,
 fontsize=\small,
-%linenos
+% linenos
 }
 
-% otoczenie do składania listingów
-\usepackage{float}
-\newfloat{listing}{htp}{lop}
-\floatname{listing}{Listing}
-\usepackage{chngcntr}
-\counterwithin{listing}{chapter}
-
-% patch wyrównujący spis listingów do lewego marginesu 
-%https://tex.stackexchange.com/questions/58469/why-are-listof-and-listoffigures-styled-differently
-\makeatletter
-\renewcommand*{\listof}[2]{%
-  \@ifundefined{ext@#1}{\float@error{#1}}{%
-    \expandafter\let\csname l@#1\endcsname \l@figure  % <- use layout of figure
-    \float@listhead{#2}%
-    \begingroup
-      \setlength\parskip{0pt plus 1pt}%               % <- or drop this line completely
-      \@starttoc{\@nameuse{ext@#1}}%
-    \endgroup}}
-\makeatother
-
-\usepackage{url}
+% pakiet do wypełnienia szablonu
 \usepackage{lipsum}
 
 % Dane o pracy
 \author{Anna Nowak}
 \title{Kot Ali a Docker}
 \titlen{The Ala's cat and the Docker}
-\promotor{prof. dr hab. inż. Jan Kowalski, prof. PWr.}
+\promotor{prof. dr hab. inż. Jan Abacki, prof. PWr.}
 %\konsultant{dr hab. inż. Kazimerz Kabacki}
 \wydzial{Wydział Informatyki i Telekomunikacji}
 \kierunek{Informatyka}
@@ -92,7 +72,5 @@ fontsize=\small,
 \appendixpage
 \appendix
 \input{dodatek}
-
-
 
 \end{document}
