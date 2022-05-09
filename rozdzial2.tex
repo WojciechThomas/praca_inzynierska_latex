@@ -12,11 +12,11 @@ Reszta dokumentacji znajduje się w \cite{docker_compose_reference}. \lipsum[3]
 
 \section{Odniesienie do książki}
 
-Jak pisze Harel w \cite{harel_rzecz_2008}: "\lipsum[1]".
+Jak pisze Harel w \cite{harel_rzecz_2008}: "\lipsum[1]". Tekst przytaczany dosłownie zawsze musi znaleźć się w cudzysłowach.
 
 \section{Rysunek}
 
-% Rysunek
+% Rysunek. Podpis zawsze pod rysunkiem.
 \begin{figure}
 \centering\includegraphics[width=.6\textwidth]{img/swarm-network}
 \caption{Docker ma sieć \cite{docker_compose_reference}.}  \label{rys:network}% Źródło rysunku i etykieta przez którą odwołujemy się do rysunku.
@@ -40,7 +40,7 @@ Co uwzględniono w tabeli \ref{tabela:coktoma}. \lipsum[13-15]
 
 \subsubsection{Nagłówek tabeli}
 
-% Tabela. Nazwa tabeli u góry.
+% Tabela. Nazwa tabeli zawsze nad tabelą.
 \begin{table}
 \centering\caption{Co kto ma \cite{harel_rzecz_2008} (patrz też dodatek~\ref{Dod1}) \label{tabela:coktoma}}
 \begin{tabular}{|l|l|l|}% wyrównanie kolumn tabeli -> l c r - do lewej, środka, do prawej
@@ -54,16 +54,21 @@ Ula & ma & małpę\\
 \end{tabular}
 \end{table}
 
-\lipsum[19-20] Warto wspomnieć, że w \cite{aizawa_groundwater_2009} rzecz przedstawiona jest zupełnie inaczej. Poniższy wzór:
+\lipsum[19-20] Warto wspomnieć, że w \cite{aizawa_groundwater_2009} rzecz przedstawiona została zupełnie inaczej. 
+
+
+\subsection{Wzory matematyczne}
+
+Poniższy wzór zaproponowany w pracy \cite{aizawa_groundwater_2009} definiuje sumę wyrazów ciągu:
 
 \begin{equation}
 \sum_{i=1}^{\infty}a_i
 \label{eq:mojWzor}
 \end{equation}
 
-Wzór \ref{eq:mojWzor} wskazuje że dowód podany w \cite{kaleta_experimental_2005} może zostać podważony. \lipsum[9]
+Wzór \ref{eq:mojWzor} wskazuje, że dowód podany w \cite{kaleta_experimental_2005} może zostać podważony. \lipsum[1]
 
-\section{Listing}
+\section{Listingi}
 
 % lub {java} albo {bash} albo {text}
 \begin{listing}
@@ -79,4 +84,4 @@ int main()
 \caption{Przykładowy algorytm w języku C (opr. wł.)} \label{listing:moj}
 \end{listing}
 
-W moim kodzie \ref{listing:moj} zrobiłem coś wspaniałego. \lipsum[4]
+W moim kodzie \ref{listing:moj} zrobiłem coś wspaniałego. \lipsum[2]

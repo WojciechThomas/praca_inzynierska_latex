@@ -8,3 +8,8 @@ _minted-praca/
 *.out
 *.synctex(busy)
 *.toc
+*.dvi
+*.log
+*.pdf
+*.synctex.gz
+*.log
