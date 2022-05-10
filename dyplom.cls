@@ -75,25 +75,25 @@
 %%% Strona tytułowa
 \def\author#1{\gdef\@author{#1}}
 \def\@author{\@latex@error{No \noexpand\author given}\@ehc}
-\def\promotor#1{\gdef\@promotor{#1}}
-\def\@promotor{\@latex@error{No \noexpand\promotor given}\@ehc}
-\def\konsultant#1{\gdef\@konsultant{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\@supervisor{\@latex@error{No \noexpand\supervisor given}\@ehc}
+\def\consultant#1{\gdef\@consultant{#1}}
 %% Zakładam, że konsultanci nie będą występowali zbyt często.
 %% Na kartę trafią tylko wtedy gdy będą...
-\def\wydzial#1{\gdef\@wydzial{#1}}
-\def\kierunek#1{\gdef\@kierunek{#1}}
-\gdef\@kierunek{Informatyka}
+\def\faculty#1{\gdef\@faculty{#1}}
+\def\fieldofstudy#1{\gdef\@fieldofstudy{#1}}
+\gdef\@fieldofstudy{Informatyka}
 \def\specjalnosc#1{\gdef\@specjalnosc{#1}}
 \gdef\@specjalnosc{\@latex@warning@no@line{No \noexpand\specjalnosc given}\@ehc}
 \def\rodzajpracy#1{\gdef\@rodzajpracy{#1}}
 \gdef\@rodzajpracy{\@latex@warning@no@line{No \noexpand\rodzajpracy given}\@ehc}
-\def\slowakluczowe#1{\gdef\@slowakluczowe{#1}}
-\gdef\@slowakluczowe{\@latex@error{No \noexpand\slowakluczowe given}\@ehc}
+\def\keywords#1{\gdef\@keywords{#1}}
+\gdef\@keywords{\@latex@error{No \noexpand\keywords given}\@ehc}
 
 % Tłumaczenia
 \if@en
 \def\@uczelnia{Wrocław University of Science and Technology}
-\def\@wydzial{Faculty of Information and Communication Technology}
+\def\@faculty{Faculty of Information and Communication Technology}
 %
 \def\@dkierunek{Field of study}
 \def\@dspecjalnosc{Speciality}
@@ -103,7 +103,7 @@
 \def\dappendix{Appendix}
 \else
 \def\@uczelnia{Politechnika Wrocławska}
-\def\@wydzial{Wydział Informatyki i Telekomunikacji}
+\def\@faculty{Wydział Informatyki i Telekomunikacji}
 %
 \def\@dkierunek{Kierunek studiów}
 \def\@dspecjalnosc{Specjalność}
@@ -153,14 +153,14 @@
 	\begin{center}
 		\textbf{\huge \@uczelnia}
 		
-		\vspace{.1cm}\textbf{\Large \@wydzial}
+		\vspace{.1cm}\textbf{\Large \@faculty}
 		
 		\vspace{-.3cm}\rule{\textwidth}{.1pt}
 	\end{center}
 	\begin{flushleft}
 		\begin{minipage}[t]{4cm}
 			\begin{tabular}{ l l }
-				\@dkierunek: \textbf{\@kierunek} \\
+				\@dkierunek: \textbf{\@fieldofstudy} \\
 				
 				%Uncomment if speciality is required
 				% Speciality:     & \textbf{\@specjalnosc} \\ 
@@ -184,12 +184,12 @@
 		
 		\vspace{3cm}{\normalsize \@dpromotor}
 		
-		\vspace{.2cm}{\Large\@promotor}
+		\vspace{.2cm}{\Large\@supervisor}
 	\end{center}
 	\vspace{\fill}
 	
 	\begin{flushleft}
-		\normalsize \@dskluczowe: \@slowakluczowe
+		\normalsize \@dskluczowe: \@keywords
 	\end{flushleft}
 	
 	\vspace{-.7cm}
