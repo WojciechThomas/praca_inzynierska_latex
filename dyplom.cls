@@ -5,19 +5,23 @@
 % inzynier – strona tytułowa inzynierska
 % archiwum – wersja do archiwum (wedlug zalecen ze strony)
 % druk – wersja do druku (dla promotora)
+% en - wersja angielska
 \newif\if@archiwum
 \newif\if@druk
 \newif\if@inzynier
 \newif\if@magister
 \newif\if@ramka
+\newif\if@en
 \@inzyniertrue
 \@archiwumtrue
 \@ramkafalse
+\@enfalse
 \DeclareOption{archiwum}{\@archiwumtrue\@drukfalse}
 \DeclareOption{druk}{\@druktrue\@archiwumfalse}
 \DeclareOption{inzynier}{\@inzyniertrue\@magisterfalse}
 \DeclareOption{magister}{\@magistertrue\@inzynierfalse}
 \DeclareOption{ramka}{\@ramkatrue}
+\DeclareOption{en}{\@entrue}
 \DeclareOption*{%                               wszystkie opcje
   \PassOptionsToClass{\CurrentOption}{mwrep}} % mają być przekazywane
                                               % do klasy mwrep
@@ -31,7 +35,10 @@
 \LoadClass[12pt]{mwrep} % ładujemy klasę bazową, do opcji
                                 % podanych w dokumencie dodajemy 12pt
 \fi
+\if@en
+\else
 \RequirePackage[OT4]{polski}      % odpowiednik \usepackage
+\fi
 %\RequirePackage[utf8]{inputenc} % to właściwie powinno być na zewnątrz
 \RequirePackage{array,graphicx} 
 \if@archiwum
@@ -73,8 +80,30 @@
 \def\konsultant#1{\gdef\@konsultant{#1}}
 %% Zakładam, że konsultanci nie będą występowali zbyt często.
 %% Na kartę trafią tylko wtedy gdy będą...
+% Tłumaczenia
+\if@en
+\def\@uczelnia{Wrocław University of Science and Technology}
+\def\@dkierunek{Faculty}
+\def\@dspecjalnosc{Speciality}
+\def\@dpromotor{Supervisor}
+\def\@dskluczowe{Keywords}
+\def\dlistoflistings{List of Listings}
+\def\dappendix{Appendix}
+\else
+\def\@uczelnia{Politechnika Wrocławska}
+\def\@dkierunek{Kierunek studiów}
+\def\@dspecjalnosc{Specjalność}
+\def\dpromotor{Opiekun pracy}
+\def\@dskluczowe{Słowa kluczowe}
+\def\dlistoflistings{Spis listingów}
+\def\dappendix{Dodatki}
+\fi
 \def\wydzial#1{\gdef\@wydzial{#1}}
-\def\@wydzial{Wydzia{\l} Mechaniczny}
+\if@en
+\def\@wydzial{Faculty of Information and Communication Technology}
+\else
+\def\@wydzial{Wydzia{\l} Informatyki i Telekomunikacji}
+\fi
 \def\kierunek#1{\gdef\@kierunek{#1}}
 \gdef\@kierunek{IPS}
 \def\specjalnosc#1{\gdef\@specjalnosc{#1}}
@@ -124,7 +153,7 @@
 	\thispagestyle{empty}
 	\newgeometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 	\begin{center}
-		\textbf{\huge Politechnika Wrocławska}
+		\textbf{\huge \@uczelnia}
 		
 		\vspace{.1cm}\textbf{\Large \@wydzial}
 		
@@ -133,7 +162,7 @@
 	\begin{flushleft}
 		\begin{minipage}[t]{4cm}
 			\begin{tabular}{ l l }
-				Kierunek studiów: \textbf{\@kierunek} \\
+				\@dkierunek: \textbf{\@kierunek} \\
 				
 				%Uncomment if speciality is required
 				% Speciality:     & \textbf{\@specjalnosc} \\ 
@@ -144,8 +173,11 @@
 	\vspace{2cm}
 	\begin{center}
 		{\Huge {\MakeUppercase{
-					Praca \if@inzynier inżynierska \fi%
-					\if@magister magisterska \fi}}}\\
+					\if@en%
+					\if@inzynier Engineering \fi \if@magister Master \fi thesis %
+					\else%
+					Praca \if@inzynier inżynierska \fi \if@magister magisterska \fi%
+					\fi}}}\\
 		\vspace{0cm plus .3fill}
 		\StrLen{\@title}[\tytuldlugosc]
 		\ifthenelse{\tytuldlugosc > \dlugoscmaxg}{
@@ -157,14 +189,14 @@
 		
 		\vspace{.5cm}{\Large\@author}
 		
-		\vspace{2cm}{\normalsize Opiekun pracy}
+		\vspace{2cm}{\normalsize \@dpromotor}
 		
 		\vspace{-.4cm}{\Large\@promotor}
 	\end{center}
 	\vspace{\fill}
 	
 	\begin{flushleft}
-		\normalsize Słowa kluczowe: \@slowakluczowe
+		\normalsize \@dskluczowe: \@slowakluczowe
 	\end{flushleft}
 	
 	\vspace{-.7cm}
@@ -180,20 +212,20 @@
 }
 
 \renewcommand{\abstract}[2]{
-
-% Abstract nie pojawia się w spisie treści
+% Pomijam Streszczenie w spisie treści
 \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 \begingroup
-	\chapter*{Streszczenie} % po polsku
+	\chapter*{\if@en Abstract \else Streszczenie \fi} % po polsku
 	#1
 	% Abstract pojawił się na tej samej stronie co Streszczenie
 	\renewcommand{\cleardoublepage}{}
 	\renewcommand{\clearpage}{}
-	\chapter*{Abstract} % ...i to samo po angielsku
+	\chapter*{\if@en Streszczenie \else Abstract \fi} % ...i to samo po angielsku
 	#2
 \endgroup
 \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}	
 }
+
 % patch wyrównujący spis listingów do lewego marginesu 
 %https://tex.stackexchange.com/questions/58469/why-are-listof-and-listoffigures-styled-differently
 \makeatletter
@@ -216,5 +248,12 @@
 \floatname{listing}{Listing}
 \RequirePackage{chngcntr}
 \counterwithin{listing}{chapter}
+
+\renewcommand{\listoflistings}{\listof{listing}{\dlistoflistings}}
+
+% dodatki
+\usepackage[toc]{appendix}
+\renewcommand{\appendixtocname}{\dappendix}
+\renewcommand{\appendixpagename}{\dappendix}
 
 \endinput % dla porządku
