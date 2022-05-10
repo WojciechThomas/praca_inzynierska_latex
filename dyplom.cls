@@ -80,10 +80,22 @@
 \def\konsultant#1{\gdef\@konsultant{#1}}
 %% Zakładam, że konsultanci nie będą występowali zbyt często.
 %% Na kartę trafią tylko wtedy gdy będą...
+\def\wydzial#1{\gdef\@wydzial{#1}}
+\def\kierunek#1{\gdef\@kierunek{#1}}
+\gdef\@kierunek{Informatyka}
+\def\specjalnosc#1{\gdef\@specjalnosc{#1}}
+\gdef\@specjalnosc{\@latex@warning@no@line{No \noexpand\specjalnosc given}\@ehc}
+\def\rodzajpracy#1{\gdef\@rodzajpracy{#1}}
+\gdef\@rodzajpracy{\@latex@warning@no@line{No \noexpand\rodzajpracy given}\@ehc}
+\def\slowakluczowe#1{\gdef\@slowakluczowe{#1}}
+\gdef\@slowakluczowe{\@latex@error{No \noexpand\slowakluczowe given}\@ehc}
+
 % Tłumaczenia
 \if@en
 \def\@uczelnia{Wrocław University of Science and Technology}
-\def\@dkierunek{Faculty}
+\def\@wydzial{Faculty of Information and Communication Technology}
+%
+\def\@dkierunek{Field of study}
 \def\@dspecjalnosc{Speciality}
 \def\@dpromotor{Supervisor}
 \def\@dskluczowe{Keywords}
@@ -91,30 +103,16 @@
 \def\dappendix{Appendix}
 \else
 \def\@uczelnia{Politechnika Wrocławska}
+\def\@wydzial{Wydział Informatyki i Telekomunikacji}
+%
 \def\@dkierunek{Kierunek studiów}
 \def\@dspecjalnosc{Specjalność}
-\def\dpromotor{Opiekun pracy}
+\def\@dpromotor{Opiekun pracy}
 \def\@dskluczowe{Słowa kluczowe}
 \def\dlistoflistings{Spis listingów}
 \def\dappendix{Dodatki}
 \fi
-\def\wydzial#1{\gdef\@wydzial{#1}}
-\if@en
-\def\@wydzial{Faculty of Information and Communication Technology}
-\else
-\def\@wydzial{Wydzia{\l} Informatyki i Telekomunikacji}
-\fi
-\def\kierunek#1{\gdef\@kierunek{#1}}
-\gdef\@kierunek{IPS}
-\def\specjalnosc#1{\gdef\@specjalnosc{#1}}
-\gdef\@specjalnosc{\@latex@warning@no@line{No \noexpand\specjalnosc given}\@ehc}
-\def\rodzajpracy#1{\gdef\@rodzajpracy{#1}}
-\gdef\@rodzajpracy{\@latex@warning@no@line{No \noexpand\rodzajpracy given}\@ehc}
-\def\slowakluczowe#1{\gdef\@slowakluczowe{#1}}
-% nowe pola wymagana w szablonie okładki WIZ
-\gdef\@slowakluczowe{\@latex@error{No \noexpand\slowakluczowe given}\@ehc}
-\def\titlen#1{\gdef\@titlen{#1}}
-\gdef\@titlen{\@latex@error{No \noexpand\titlen given}\@ehc}
+
 %
 \RequirePackage{microtype}
 \RequirePackage[utf8]{inputenc}
@@ -179,19 +177,14 @@
 					Praca \if@inzynier inżynierska \fi \if@magister magisterska \fi%
 					\fi}}}\\
 		\vspace{0cm plus .3fill}
-		\StrLen{\@title}[\tytuldlugosc]
-		\ifthenelse{\tytuldlugosc > \dlugoscmaxg}{
-			\Large
-			\textbf{\@title}\\
-		}{
-			\huge\textbf{\@title}\\
-		}
+
+        {\Huge \textbf{\@title}}\\
 		
-		\vspace{.5cm}{\Large\@author}
+		\vspace{1cm}{\Large\@author}
 		
-		\vspace{2cm}{\normalsize \@dpromotor}
+		\vspace{3cm}{\normalsize \@dpromotor}
 		
-		\vspace{-.4cm}{\Large\@promotor}
+		\vspace{.2cm}{\Large\@promotor}
 	\end{center}
 	\vspace{\fill}
 	
@@ -211,7 +204,7 @@
 \pagenumbering{arabic}
 }
 
-\renewcommand{\abstract}[2]{
+\renewcommand\abstract[2]{
 % Pomijam Streszczenie w spisie treści
 \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 \begingroup
@@ -249,11 +242,11 @@
 \RequirePackage{chngcntr}
 \counterwithin{listing}{chapter}
 
-\renewcommand{\listoflistings}{\listof{listing}{\dlistoflistings}}
+\renewcommand\listoflistings{\listof{listing}{\dlistoflistings}}
 
 % dodatki
 \usepackage[toc]{appendix}
-\renewcommand{\appendixtocname}{\dappendix}
-\renewcommand{\appendixpagename}{\dappendix}
+\renewcommand\appendixtocname{\dappendix}
+\renewcommand\appendixpagename{\dappendix}
 
 \endinput % dla porządku
