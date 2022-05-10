@@ -1,8 +1,9 @@
 # praca_inzynierska_latex
-Szablon pracy inżynierskiej na Wydziale Informatyki i Zarządzania (bazujący na szablonie Wojciecha Myszki)
 
-W szablonie wykorzystałem elementy pochodzące z szablonów różnych autorów:
-- Wojciech Myszka - układ szablonu, klasa dokumentu itd. z Wydziału Mechanicznego
-- Damian Fafuła, Michał Kijaczko, Jakub Michalczak, Maciej Miśta, Dagmara Nowak, Tomasz Skalski, Wojciech Słomian - elementy strony tytułowej szablonu z Wydziału Matematyki
+Szablon pracy inżynierskiej na Wydziale Informatyki i Telekomunikacji 
 
-- 
+Szablon opracowałem w dużej części w oparciu o szablon [Wojciecha Myszki](@wojciechmyszka)
+
+Szablon pozwala na użycie wersji polskiej: `\documentclass[magister,druk]{dyplom}`
+
+You can translate template into English, using `en` switch: `\documentclass[magister,druk,en]{dyplom}`.
