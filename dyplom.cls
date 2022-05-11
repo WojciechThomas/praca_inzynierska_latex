@@ -77,13 +77,11 @@
 \def\supervisor#1{\gdef\@supervisor{#1}}
 \def\@supervisor{\@latex@error{No \noexpand\supervisor given}\@ehc}
 \def\consultant#1{\gdef\@consultant{#1}}
-%% Zakładam, że konsultanci nie będą występowali zbyt często.
-%% Na kartę trafią tylko wtedy gdy będą...
 \def\faculty#1{\gdef\@faculty{#1}}
 \def\fieldofstudy#1{\gdef\@fieldofstudy{#1}}
 \gdef\@fieldofstudy{Informatyka}
-\def\specjalnosc#1{\gdef\@specjalnosc{#1}}
-\gdef\@specjalnosc{\@latex@warning@no@line{No \noexpand\specjalnosc given}\@ehc}
+\def\specialisation#1{\gdef\@specialisation{#1}}
+\gdef\@specialisation{\@latex@warning@no@line{No \noexpand\specialisation given}\@ehc}
 \def\rodzajpracy#1{\gdef\@rodzajpracy{#1}}
 \gdef\@rodzajpracy{\@latex@warning@no@line{No \noexpand\rodzajpracy given}\@ehc}
 \def\keywords#1{\gdef\@keywords{#1}}
@@ -95,8 +93,9 @@
 \def\@faculty{Faculty of Information and Communication Technology}
 %
 \def\@dkierunek{Field of study}
-\def\@dspecjalnosc{Speciality}
+\def\@dspecialisation{Specialisation}
 \def\@dpromotor{Supervisor}
+\def\@dconsultant{Consultant}
 \def\@dskluczowe{Keywords}
 \def\dlistoflistings{List of Listings}
 \def\dappendix{Appendix}
@@ -106,8 +105,9 @@
 \def\@faculty{Wydział Informatyki i Telekomunikacji}
 %
 \def\@dkierunek{Kierunek studiów}
-\def\@dspecjalnosc{Specjalność}
+\def\@dspecialisation{Specjalność}
 \def\@dpromotor{Opiekun pracy}
+\def\@dconsultant{Konsultant}
 \def\@dskluczowe{Słowa kluczowe}
 \def\dlistoflistings{Spis listingów}
 \def\dappendix{Dodatki}
@@ -163,7 +163,7 @@
 			\begin{tabular}{ l l }
 				\@dkierunek: \textbf{\@fieldofstudy} \\
 				
-				\ifdefined\specjalnosc \@dspecjalnosc: \textbf{\@specjalnosc} \fi
+				\ifdefined\specialisation \@dspecialisation: \textbf{\@specialisation} \fi
 			\end{tabular}
 		\end{minipage}
 	\end{flushleft}
@@ -185,6 +185,14 @@
 		\vspace{3cm}{\normalsize \@dpromotor}
 		
 		\vspace{.2cm}{\Large\@supervisor}
+
+		\ifdefined\consultant% 
+		\vspace{1cm}{\normalsize \@dconsultant}
+
+		\vspace{.2cm}{\Large\@consultant}
+		\fi
+
+
 	\end{center}
 	\vspace{\fill}
 	
