@@ -79,9 +79,8 @@
 \def\consultant#1{\gdef\@consultant{#1}}
 \def\faculty#1{\gdef\@faculty{#1}}
 \def\fieldofstudy#1{\gdef\@fieldofstudy{#1}}
-\gdef\@fieldofstudy{Informatyka}
+\gdef\@fieldofstudy{Informatyka stosowana}
 \def\specialisation#1{\gdef\@specialisation{#1}}
-\gdef\@specialisation{\@latex@warning@no@line{No \noexpand\specialisation given}\@ehc}
 \def\rodzajpracy#1{\gdef\@rodzajpracy{#1}}
 \gdef\@rodzajpracy{\@latex@warning@no@line{No \noexpand\rodzajpracy given}\@ehc}
 \def\keywords#1{\gdef\@keywords{#1}}
@@ -89,7 +88,7 @@
 
 % Tłumaczenia
 \if@en
-\def\@uczelnia{Wrocław University of Science and Technology}
+\def\@university{Wrocław University of Science and Technology}
 \def\@faculty{Faculty of Information and Communication Technology}
 %
 \def\@dkierunek{Field of study}
@@ -101,7 +100,7 @@
 \def\dappendix{Appendix}
 \renewcommand\figurename{Fig.}
 \else
-\def\@uczelnia{Politechnika Wrocławska}
+\def\@university{Politechnika Wrocławska}
 \def\@faculty{Wydział Informatyki i Telekomunikacji}
 %
 \def\@dkierunek{Kierunek studiów}
@@ -152,7 +151,7 @@
 	\thispagestyle{empty}
 	\newgeometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 	\begin{center}
-		\textbf{\huge \@uczelnia}
+		\textbf{\huge \@university}
 		
 		\vspace{.1cm}\textbf{\Large \@faculty}
 		
@@ -163,7 +162,7 @@
 			\begin{tabular}{ l l }
 				\@dkierunek: \textbf{\@fieldofstudy} \\
 				
-				\ifdefined\specialisation \@dspecialisation: \textbf{\@specialisation} \fi
+				\ifdef{\@specialisation}{\@dspecialisation: \textbf{\@specialisation}}{}
 			\end{tabular}
 		\end{minipage}
 	\end{flushleft}
@@ -186,13 +185,10 @@
 		
 		\vspace{.2cm}{\Large\@supervisor}
 
-		\ifdefined\consultant% 
-		\vspace{1cm}{\normalsize \@dconsultant}
-
-		\vspace{.2cm}{\Large\@consultant}
-		\fi
-
-
+		\ifdef{\@consultant}{% 
+			\vspace{1cm}{\normalsize \@dconsultant}
+	
+			\vspace{.2cm}{\Large\@consultant}}{}
 	\end{center}
 	\vspace{\fill}
 	
