@@ -163,8 +163,7 @@
 			\begin{tabular}{ l l }
 				\@dkierunek: \textbf{\@fieldofstudy} \\
 				
-				%Uncomment if speciality is required
-				% Speciality:     & \textbf{\@specjalnosc} \\ 
+				\ifdefined\specjalnosc \@dspecjalnosc: \textbf{\@specjalnosc} \fi
 			\end{tabular}
 		\end{minipage}
 	\end{flushleft}
