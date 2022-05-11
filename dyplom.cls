@@ -70,8 +70,7 @@
         {\FormatHangHeading{\footnotesize\rmfamily\bfseries}}
         {6\p@\@plus2\p@}
 %%% Floaty
-%% Rysunki
-\renewcommand\figurename{Rys.}
+
 %%% Strona tytułowa
 \def\author#1{\gdef\@author{#1}}
 \def\@author{\@latex@error{No \noexpand\author given}\@ehc}
@@ -101,6 +100,7 @@
 \def\@dskluczowe{Keywords}
 \def\dlistoflistings{List of Listings}
 \def\dappendix{Appendix}
+\renewcommand\figurename{Fig.}
 \else
 \def\@uczelnia{Politechnika Wrocławska}
 \def\@faculty{Wydział Informatyki i Telekomunikacji}
@@ -111,6 +111,7 @@
 \def\@dskluczowe{Słowa kluczowe}
 \def\dlistoflistings{Spis listingów}
 \def\dappendix{Dodatki}
+\renewcommand\figurename{Rys.}
 \fi
 
 %
