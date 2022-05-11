@@ -57,18 +57,23 @@
 %% chapter -- pierwszy stopień
 \SetSectionFormatting[breakbefore,wholewidth]{chapter}
         {56\p@}
-        {\FormatBlockHeading{\normalsize\bfseries\MakeUppercase}}
+        {\FormatBlockHeading{\Large\bfseries\MakeUppercase}}
         {24\p@}
 %% section -- drugi stopień
 \SetSectionFormatting{section}
         {24\p@\@plus5\p@\@minus2\p@}
-        {\FormatHangHeading{\footnotesize\bfseries\MakeUppercase}}
+        {\FormatHangHeading{\normalsize\bfseries\MakeUppercase}}
         {10\p@\@plus3\p@}
 %% subsection -- ewentualny trzeci poziom
 \SetSectionFormatting{subsection}
         {16\p@\@plus4\p@\@minus1\p@}
-        {\FormatHangHeading{\footnotesize\rmfamily\bfseries}}
+        {\FormatHangHeading{\small\rmfamily\bfseries}}
         {6\p@\@plus2\p@}
+\SetSectionFormatting{subsubsection}
+		{16\p@\@plus4\p@\@minus1\p@}
+		{\FormatHangHeading{\footnotesize\rmfamily\bfseries}}
+		{6\p@\@plus2\p@}
+
 %%% Floaty
 
 %%% Strona tytułowa
@@ -153,16 +158,15 @@
 	\begin{center}
 		\textbf{\huge \@university}
 		
-		\vspace{.1cm}\textbf{\Large \@faculty}
+		\vspace{.2cm}\textbf{\Large \@faculty}
 		
 		\vspace{-.3cm}\rule{\textwidth}{.1pt}
 	\end{center}
 	\begin{flushleft}
 		\begin{minipage}[t]{4cm}
 			\begin{tabular}{ l l }
-				\@dkierunek: \textbf{\@fieldofstudy} \\
-				
-				\ifdef{\@specialisation}{\@dspecialisation: \textbf{\@specialisation}}{}
+				\@dkierunek: & \textbf{\@fieldofstudy} \\
+				\ifdef{\@specialisation}{\@dspecialisation: & \textbf{\@specialisation}}{}
 			\end{tabular}
 		\end{minipage}
 	\end{flushleft}
