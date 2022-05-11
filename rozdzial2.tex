@@ -12,7 +12,7 @@ Reszta dokumentacji znajduje się w \cite{docker_compose_reference}. \lipsum[3]
 
 \section{Odniesienie do książki}
 
-Jak pisze Harel w \cite{harel_rzecz_2008}: "\lipsum[1]". Tekst przytaczany dosłownie zawsze musi znaleźć się w cudzysłowach.
+Tekst przytaczany dosłownie zawsze musi znaleźć się w cudzysłowach. Jak pisze Harel w \cite{harel_rzecz_2008}: "\lipsum[1]". 
 
 \section{Rysunek}
 
@@ -27,18 +27,36 @@ Jak widać na rys. \ref{rys:network} Docker ma wewnętrzną sieć. \lipsum[1]
 
 \subsection{Rysunek z kotem}
 
-Jak widać na rys.\ref{rysunek:kot} Ala ma kota. \lipsum[9-10] 
+Jak widać na rys.\ref{rysunek:kot} Ala ma kota. Następne rysunki \ref{rysunek:lewy} i \ref{rysunek:prawy} pokazują w jaki sposób umieścić obok siebie dwa (lub więcej rysunków). \LaTeX jest przystosowany do składu tekstów i słabo radzi sobie z pracami w których jest więcej rysunków niż tekstu. Opcja \verb+[h]+ nakłania system do umieszczenia rysunków mniej więcej tam, gdzie znajdują się w kodzie. \lipsum[9-10] 
 
-\begin{figure}
+\begin{figure}[h]
 \centering\includegraphics[width=.4\textwidth]{img/kotek}
 \caption{Ala ma kota (opr.wł).}\label{rysunek:kot}
 \end{figure}
 
+\lipsum[11-12]
+
+\begin{figure}[h] 
+	\centering
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering\includegraphics[width=0.9\textwidth]{img/kotek} % first figure itself
+		\caption{Lewy obrazek}\label{rysunek:lewy}
+	\end{minipage}
+	\begin{minipage}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{img/swarm-network} % second figure itself
+		\caption{Prawy obrazek}\label{rysunek:prawy}
+	\end{minipage}
+\end{figure}
+
+\lipsum[13-14]
+
+
 \subsection{Tabela}
 
-Co uwzględniono w tabeli \ref{tabela:coktoma}. \lipsum[13-15] 
+Tabele składamy tak jak pokazano w tabeli \ref{tabela:coktoma}. Nagłowek tabeli jest zawsze na górze. \lipsum[15] 
 
-\subsubsection{Nagłówek tabeli}
+\subsection{Nagłówek tabeli}
 
 % Tabela. Nazwa tabeli zawsze nad tabelą.
 \begin{table}
@@ -68,11 +86,14 @@ Poniższy wzór zaproponowany w pracy \cite{aizawa_groundwater_2009} definiuje s
 
 Wzór \ref{eq:mojWzor} wskazuje, że dowód podany w \cite{kaleta_experimental_2005} może zostać podważony. \lipsum[1]
 
+
 \section{Listingi}
 
-% lub {java} albo {bash} albo {text}
+W moim kodzie \ref{listing:moj} zrobiłem coś wspaniałego. \lipsum[2]
+
+ % Możesz zastąpić język {c} przez {java} albo {bash} albo {text} albo ...
 \begin{listing}
-\begin{minted}{c} 
+\begin{minted}{c}
 int main()
 {
    int a=2*3;
@@ -84,4 +105,3 @@ int main()
 \caption{Przykładowy algorytm w języku C (opr. wł.)} \label{listing:moj}
 \end{listing}
 
-W moim kodzie \ref{listing:moj} zrobiłem coś wspaniałego. \lipsum[2]
