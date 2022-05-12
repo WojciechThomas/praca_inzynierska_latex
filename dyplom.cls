@@ -152,7 +152,7 @@
 \RequirePackage{etoolbox}
 
 \renewcommand\maketitle{%
-	\pagenumbering{alph}%
+	\pagenumbering{gobble}%
 	\thispagestyle{empty}
 	\newgeometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 	\begin{center}
@@ -207,9 +207,12 @@
 		\vspace{-.2cm}\large Wrocław \the\year
 	\end{center}
 
+\clearpage
+\if@druk%
+\hbox{}
 \cleardoublepage
+\fi
 \restoregeometry
-\pagenumbering{arabic}
 }
 
 \renewcommand\abstract[2]{
@@ -224,7 +227,14 @@
 	\chapter*{\if@en Streszczenie \else Abstract \fi} % ...i to samo po angielsku
 	#2
 \endgroup
-\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}	
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+\clearpage
+\if@druk%
+\hbox{}
+\cleardoublepage
+\fi
+\pagenumbering{arabic}
 }
 
 % patch wyrównujący spis listingów do lewego marginesu 
