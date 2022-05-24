@@ -1,6 +1,6 @@
 # praca_inzynierska_latex
 
-Szablon pracy inżynierskiej na Wydziale Informatyki i Telekomunikacji (na razie nioficjalny / currently unofficial)
+Szablon pracy inżynierskiej na Wydziale Informatyki i Telekomunikacji (na razie nieoficjalny / currently unofficial)
 
 Szablon opracowałem w dużej części w oparciu o szablon [Wojciecha Myszki](@wojciechmyszka)
 
