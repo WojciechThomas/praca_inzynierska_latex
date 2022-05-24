@@ -164,8 +164,9 @@
 		\vspace{-.3cm}\rule{\textwidth}{.1pt}
 	\end{center}
 
+    \vspace{.3cm}
 	\begin{flushleft}
-		\begin{minipage}[t]{4cm}
+		\begin{minipage}[t]{\textwidth/2}
 			\begin{tabular}{ l l }
 				\@dkierunek: & \textbf{\@fieldofstudy} \\
 				\ifdef{\@specialisation}{\@dspecialisation: & \textbf{\@specialisation}}{}
@@ -183,11 +184,11 @@
 					\vspace{.4em}\MakeUppercase{\if@inzynier{inżynierska}\fi\if@magister{magisterska}\fi}%
       				\fi}
       			
-		\vspace{0cm plus .3fill}
+		\vspace{2cm plus .3fill}
 
         {\huge \textbf{\@title}}\\
 		
-		\vspace{2cm}{\huge\@author}
+		\vspace{1.5cm}{\huge\@author}
 		
 		\vspace{3cm}{\large \@dpromotor}
 		
