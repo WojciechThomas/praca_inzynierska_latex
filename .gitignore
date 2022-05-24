@@ -1,6 +1,7 @@
 _minted-praca/
 *.aux
 *.bbl
+*.bst
 *.blg
 *.lof
 *.lop
