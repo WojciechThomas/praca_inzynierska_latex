@@ -84,7 +84,7 @@
 \def\consultant#1{\gdef\@consultant{#1}}
 \def\faculty#1{\gdef\@faculty{#1}}
 \def\fieldofstudy#1{\gdef\@fieldofstudy{#1}}
-\gdef\@fieldofstudy{Informatyka stosowana}
+\gdef\@fieldofstudy{INF}
 \def\specialisation#1{\gdef\@specialisation{#1}}
 \def\rodzajpracy#1{\gdef\@rodzajpracy{#1}}
 \gdef\@rodzajpracy{\@latex@warning@no@line{No \noexpand\rodzajpracy given}\@ehc}
@@ -97,7 +97,7 @@
 \def\@faculty{Faculty of Information and Communication Technology}
 %
 \def\@dkierunek{Field of study}
-\def\@dspecialisation{Specialisation}
+\def\@dspecialisation{Speciality}
 \def\@dpromotor{Supervisor}
 \def\@dconsultant{Consultant}
 \def\@dskluczowe{Keywords}
@@ -108,7 +108,7 @@
 \def\@university{Politechnika Wrocławska}
 \def\@faculty{Wydział Informatyki i Telekomunikacji}
 %
-\def\@dkierunek{Kierunek studiów}
+\def\@dkierunek{Kierunek}
 \def\@dspecialisation{Specjalność}
 \def\@dpromotor{Opiekun pracy}
 \def\@dconsultant{Konsultant}
@@ -155,13 +155,15 @@
 	\pagenumbering{gobble}%
 	\thispagestyle{empty}
 	\newgeometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+    {\fontfamily{mdugm}\selectfont % switch font to Garamond - WIT requirement
 	\begin{center}
-		\textbf{\huge \@university}
+		\textbf{\LARGE\@university}
 		
 		\vspace{.2cm}\textbf{\Large \@faculty}
 		
 		\vspace{-.3cm}\rule{\textwidth}{.1pt}
 	\end{center}
+
 	\begin{flushleft}
 		\begin{minipage}[t]{4cm}
 			\begin{tabular}{ l l }
@@ -173,26 +175,28 @@
 	
 	\vspace{2cm}
 	\begin{center}
-		{\Huge {\MakeUppercase{
-					\if@en%
-					\if@inzynier Engineering \fi \if@magister Master \fi thesis %
+		{\Huge	\if@en%
+					\MakeUppercase{\if@inzynier Engineering \fi \if@magister Master \fi thesis }%
 					\else%
-					Praca \if@inzynier inżynierska \fi \if@magister magisterska \fi%
-					\fi}}}\\
+					\MakeUppercase{Praca dyplomowa}
+					
+					\vspace{.4em}\MakeUppercase{\if@inzynier{inżynierska}\fi\if@magister{magisterska}\fi}%
+      				\fi}
+      			
 		\vspace{0cm plus .3fill}
 
-        {\Huge \textbf{\@title}}\\
+        {\huge \textbf{\@title}}\\
 		
-		\vspace{1cm}{\Large\@author}
+		\vspace{2cm}{\huge\@author}
 		
-		\vspace{3cm}{\normalsize \@dpromotor}
+		\vspace{3cm}{\large \@dpromotor}
 		
-		\vspace{.2cm}{\Large\@supervisor}
+		\vspace{.2cm}{\large\bfseries\@supervisor}
 
 		\ifdef{\@consultant}{% 
 			\vspace{1cm}{\normalsize \@dconsultant}
 	
-			\vspace{.2cm}{\Large\@consultant}}{}
+			\vspace{.2cm}{\large\@consultant}}{}
 	\end{center}
 	\vspace{\fill}
 	
@@ -200,13 +204,13 @@
 		\normalsize \@dskluczowe: \@keywords
 	\end{flushleft}
 	
-	\vspace{-.7cm}
+	\vspace{.2cm}
 	\begin{center}   
 		\rule{\textwidth}{.2pt}
 		
-		\vspace{-.2cm}\large Wrocław \the\year
+		\vspace{-.2cm}\large \MakeUppercase{Wrocław} \the\year
 	\end{center}
-
+    }
 \clearpage
 \if@druk%
 \hbox{}
