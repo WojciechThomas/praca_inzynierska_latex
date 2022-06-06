@@ -259,6 +259,7 @@
 
 \RequirePackage{url}
 \RequirePackage{minted}
+\renewcommand{\ttdefault}{lmtt}
 
 % otoczenie do składania listingów
 \RequirePackage{float}
