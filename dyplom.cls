@@ -267,8 +267,9 @@
 \floatname{listing}{Listing}
 \RequirePackage{chngcntr}
 \counterwithin{listing}{chapter}
-
 \renewcommand\listoflistings{\listof{listing}{\dlistoflistings}}
+\RequirePackage{caption}
+\captionsetup{labelsep=period}
 
 % dodatki
 \usepackage[toc]{appendix}
