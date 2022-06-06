@@ -152,6 +152,7 @@
 \RequirePackage{etoolbox}
 
 \renewcommand\maketitle{%
+        \hypersetup{pageanchor=false}%
 	\pagenumbering{gobble}%
 	\thispagestyle{empty}
 	\newgeometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
@@ -240,6 +241,7 @@
 \cleardoublepage
 \fi
 \pagenumbering{arabic}
+\hypersetup{pageanchor=true}
 }
 
 % patch wyrównujący spis listingów do lewego marginesu 
