@@ -19,7 +19,10 @@ Tekst przytaczany dosłownie zawsze musi znaleźć się w cudzysłowach. Jak pis
 % Rysunek. Podpis zawsze pod rysunkiem.
 \begin{figure}
 \centering\includegraphics[width=.6\textwidth]{img/swarm-network}
-\caption{Docker ma sieć \cite{docker_compose_reference}.}  \label{rys:network}% Źródło rysunku i etykieta przez którą odwołujemy się do rysunku.
+% Podpis pod rysunkiem
+% Alternatywny podpis w nawiasach [] jest używany w spisie rysunków (nie zawiera np. referencji)
+% Pochodzenie rysunku i etykieta przez którą odwołujemy się do rysunku.
+\caption[Docker ma sieć]{Docker ma sieć \cite{docker_compose_reference}.}  \label{rys:network}
 \end{figure}
 
 Jak widać na rys. \ref{rys:network} Docker ma wewnętrzną sieć. \lipsum[1]
@@ -31,7 +34,7 @@ Jak widać na rys.\ref{rysunek:kot} Ala ma kota. Następne rysunki \ref{rysunek:
 
 \begin{figure}[h]
 \centering\includegraphics[width=.4\textwidth]{img/kotek}
-\caption{Ala ma kota (opr.wł).}\label{rysunek:kot}
+\caption[Ala ma kota]{Ala ma kota (opr.wł).}\label{rysunek:kot}
 \end{figure}
 
 \lipsum[11-12]
@@ -60,7 +63,8 @@ Tabele składamy tak jak pokazano w tabeli \ref{tabela:coktoma}. Nagłowek tabel
 
 % Tabela. Nazwa tabeli zawsze nad tabelą.
 \begin{table}
-\centering\caption{Co kto ma \cite{harel_rzecz_2008} (patrz też dodatek~\ref{Dod1}) \label{tabela:coktoma}}
+% W alternatywnym tytule tabeli, wykorzystywanym w spisie tabel, (w nawiasach []) nie umieszczamy referencji ani uwag
+\centering\caption[Co kto ma]{Co kto ma \cite{harel_rzecz_2008} (patrz też dodatek~\ref{Dod1}) \label{tabela:coktoma}}
 \begin{tabular}{|l|l|l|}% wyrównanie kolumn tabeli -> l c r - do lewej, środka, do prawej
 \hline
 Ala & ma & kota \\
@@ -102,6 +106,6 @@ int main()
    return 0;
 }
 \end{minted}
-\caption{Przykładowy algorytm w języku C (opr. wł.)} \label{listing:moj}
+\caption[Przykładowy algorytm w języku C]{Przykładowy algorytm w języku C (opr. wł.)} \label{listing:moj}
 \end{listing}
 
